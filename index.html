@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite - Festa Letícia Marques</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="event-name">Festa de Aniversário da Letícia Marques</h1>
+    <form id="rsvp-form">
+      <label for="guest-name">Seu nome:</label>
+      <input type="text" id="guest-name" name="guest-name" required>
+      <label for="attendance">Confirma presença?</label>
+      <select id="attendance" name="attendance" required>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+      <button type="submit">Confirmar</button>
+    </form>
+    <div id="message"></div>
+    <div id="confirmed-count"></div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

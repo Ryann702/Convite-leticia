@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin - Festa Letícia Marques</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Painel do Evento</h1>
+    <h2 id="event-name">Festa de Aniversário da Letícia Marques</h2>
+    <div id="confirmed-count"></div>
+    <table id="guests-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Presença</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

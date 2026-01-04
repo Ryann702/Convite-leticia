@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px;
+}
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+input, select, button {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+button:hover {
+  background: #0056b3;
+}
+#message {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+}
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+#confirmed-count {
+  margin: 16px 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #007bff;
+}
