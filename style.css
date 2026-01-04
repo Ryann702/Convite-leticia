@@ -1,4 +1,37 @@
 /* =========================================
+   TABELA DE CONVIDADOS (ADMIN)
+   ========================================= */
+#guests-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin-top: 1.5rem;
+}
+#guests-table th, #guests-table td {
+  padding: 12px 24px;
+  text-align: left;
+  background: rgba(20, 20, 20, 0.85);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+#guests-table th {
+  color: #d4af37;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #d4af37;
+  background: rgba(20, 20, 20, 0.95);
+}
+#guests-table td {
+  color: #fff;
+  font-weight: 400;
+}
+@media (max-width: 480px) {
+  #guests-table th, #guests-table td {
+    padding: 10px 8px;
+    font-size: 0.95rem;
+  }
+}
+/* =========================================
    RESET E CONFIGURAÇÕES GERAIS
    ========================================= */
 * {
