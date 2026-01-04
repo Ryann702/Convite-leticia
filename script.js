@@ -3,12 +3,13 @@ const EVENTO_ID = "festa-leticia";
 
 // Cole suas chaves do Firebase abaixo
 const firebaseConfig = {
-  apiKey: "COLE_AQUI",
-  authDomain: "COLE_AQUI",
-  projectId: "COLE_AQUI",
-  storageBucket: "COLE_AQUI",
-  messagingSenderId: "COLE_AQUI",
-  appId: "COLE_AQUI"
+  apiKey: "AIzaSyD5LMXAiGrl2tFewsGJQpYI55aNoV0fnYI",
+  authDomain: "leticia-marques.firebaseapp.com",
+  projectId: "leticia-marques",
+  storageBucket: "leticia-marques.appspot.com",
+  messagingSenderId: "134824251762",
+  appId: "1:134824251762:web:ea01398e9bea79a354cdeb",
+  measurementId: "G-FJ24J079W5"
 };
 
 firebase.initializeApp(firebaseConfig);
