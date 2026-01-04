@@ -3,27 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite - Festa Letícia Marques</title>
+  <title>Convite - Boliche da Letícia Marques</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1 id="event-name">Festa de Aniversário da Letícia Marques</h1>
+  
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="container glass-effect">
+    <p class="intro-text">você está convidado para o</p>
+    
+    <div class="bowling-header">
+      <svg class="bowling-icon pins-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 32C256 14.33 241.7 0 224 0S192 14.33 192 32v96c0 17.67 14.33 32 32 32s32-14.33 32-32V32zm96 96c0-17.67-14.33-32-32-32s-32 14.33-32 32v96c0 17.67 14.33 32 32 32s32-14.33 32-32v-96zM64 224c0-17.67-14.33-32-32-32S0 206.3 0 224v96c0 17.67 14.33 32 32 32s32-14.33 32-32v-96zm96 96c0-17.67-14.33-32-32-32s-32 14.33-32 32v96c0 17.67 14.33 32 32 32s32-14.33 32-32v-96z"/></svg>
+      <h1 id="event-name">ANIVERSÁRIO DE<br>LETÍCIA MARQUES</h1>
+      <svg class="bowling-icon ball-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm86.9 167.1c-10.1 0-18.3-8.2-18.3-18.3s8.2-18.3 18.3-18.3 18.3 8.2 18.3 18.3-8.2 18.3-18.3 18.3zm-66-45.7c-10.1 0-18.3-8.2-18.3-18.3s8.2-18.3 18.3-18.3 18.3 8.2 18.3 18.3-8.2 18.3-18.3 18.3zm17.1 86.9c-10.1 0-18.3-8.2-18.3-18.3s8.2-18.3 18.3-18.3 18.3 8.2 18.3 18.3-8.2 18.3-18.3 18.3z"/></svg>
+    </div>
+
+    <div class="divider">
+      <span class="line"></span>
+      <span class="star">STRIKE NIGHT</span>
+      <span class="line"></span>
+    </div>
+
+    <h2 class="sub-title">SWEET 18</h2>
+    <div class="event-time">18:00 — 20:30</div>
+
     <form id="rsvp-form">
-      <label for="guest-name">Seu nome:</label>
-      <input type="text" id="guest-name" name="guest-name" required>
-      <label for="attendance">Confirma presença?</label>
-      <select id="attendance" name="attendance" required>
-        <option value="sim">Sim</option>
-        <option value="nao">Não</option>
-      </select>
-      <button type="submit">Confirmar</button>
+      <div class="input-group">
+        <label for="guest-name">Seu nome</label>
+        <input type="text" id="guest-name" name="guest-name" placeholder="Digite seu nome completo" required>
+      </div>
+
+      <div class="input-group">
+        <label for="attendance">Confirma presença?</label>
+        <select id="attendance" name="attendance" required>
+          <option value="sim">Sim, farei um strike!</option>
+          <option value="nao">Não poderei ir</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-primary">CONFIRMAR PRESENÇA</button>
+      
+      <button type="button" class="btn-secondary" onclick="abrirModal()">
+       VER LOCALIZAÇÃO NO MAPA
+      </button>
     </form>
+
     <div id="message"></div>
     <div id="confirmed-count"></div>
   </div>
+
+  <div id="map-modal" class="modal-overlay">
+    <div class="modal-content glass-effect">
+      <span class="close-btn" onclick="fecharModal()">×</span>
+      <h3>LOCAL DO STRIKE</h3>
+      <p>Mangabeira Shopping - João Pessoa/PB</p>
+      
+      <div class="map-container">
+        <iframe 
+          width="100%" 
+          height="100%" 
+          id="gmap_canvas" 
+          src="https://maps.google.com/maps?q=Mangabeira%20Shopping%2C%20Jo%C3%A3o%20Pessoa%2C%20PB&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          frameborder="0" 
+          scrolling="no" 
+          marginheight="0" 
+          marginwidth="0">
+        </iframe>
+      </div>
+      
+      <button class="btn-primary" style="margin-top: 15px; font-size: 0.9rem;" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Mangabeira+Shopping+Joao+Pessoa', '_blank')">
+        ABRIR NO APP DE MAPAS
+      </button>
+    </div>
+  </div>
+
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="script.js"></script>
+  <script src="animation.js"></script>
 </body>
 </html>

@@ -1,59 +1,353 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-.container {
-  max-width: 400px;
-  margin: 40px auto;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 24px;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #050505; /* Fundo quase preto para destacar o dourado */
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative; /* Necessário para o Canvas ficar no fundo */
 }
-h1, h2 {
+
+/* =========================================
+   CANVAS (FUNDO ANIMADO)
+   ========================================= */
+#bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Fica atrás de todo o conteúdo */
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+}
+
+/* =========================================
+   CONTAINER PRINCIPAL (GLASSMORPHISM)
+   ========================================= */
+.container.glass-effect {
+  position: relative;
+  z-index: 1; /* Fica na frente do Canvas */
+  background: rgba(20, 20, 20, 0.65); /* Preto transparente */
+  backdrop-filter: blur(12px); /* O desfoque que cria o efeito de vidro */
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3rem 2.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.25); /* Borda dourada fina */
+  border-radius: 16px;
+  max-width: 520px;
+  width: 90%;
   text-align: center;
-  color: #333;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(212, 175, 55, 0.05);
 }
+
+/* =========================================
+   TIPOGRAFIA E CABEÇALHO
+   ========================================= */
+.intro-text {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+}
+
+.bowling-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 1rem;
+}
+
+/* Ícones SVG */
+.bowling-icon {
+  width: 40px;
+  height: auto;
+  fill: #d4af37; /* Dourado */
+  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+}
+
+.pins-icon { transform: rotate(-10deg); }
+.ball-icon { width: 35px; }
+
+h1#event-name {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* Divisor Strike Night */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.line {
+  height: 1px;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.star {
+  color: #d4af37;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.sub-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  color: #d4af37;
+  margin: 0.5rem 0 1.5rem 0;
+  font-weight: 400;
+  letter-spacing: 2px;
+  background: linear-gradient(to bottom, #fcf6ba 0%, #bf953f 40%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+}
+
+/* Novo Estilo do Horário */
+.event-time {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   FORMULÁRIO E INPUTS
+   ========================================= */
 form {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.5rem;
 }
-input, select, button {
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-button {
-  background: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-button:hover {
-  background: #0056b3;
-}
-#message {
-  margin-top: 16px;
-  text-align: center;
-  font-size: 1rem;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 24px;
-}
-th, td {
-  padding: 8px;
-  border-bottom: 1px solid #eee;
+
+.input-group {
   text-align: left;
 }
-#confirmed-count {
-  margin: 16px 0;
-  text-align: center;
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+input:focus, select:focus {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: #d4af37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+select option {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* =========================================
+   BOTÕES
+   ========================================= */
+
+/* Botão Primário (Confirmar) */
+.btn-primary {
+  margin-top: 1rem;
+  width: 100%;
+  background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
+  color: #000;
+  border: none;
+  padding: 16px;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
-  color: #007bff;
+  font-weight: 800;
+  cursor: pointer;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #eacda3 0%, #d6ae7b 100%);
+}
+
+/* Botão Secundário (Mapa) */
+.btn-secondary {
+  margin-top: 10px;
+  width: 100%;
+  background: transparent;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  padding: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   MENSAGENS E RESPONSIVIDADE
+   ========================================= */
+#message {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  min-height: 24px;
+  color: #d4af37;
+  font-weight: 600;
+}
+
+#confirmed-count {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 480px) {
+  h1#event-name { font-size: 1.8rem; }
+  .sub-title { font-size: 2.5rem; }
+  .container.glass-effect { padding: 2rem 1.5rem; }
+  .bowling-icon { width: 30px; }
+}
+
+
+
+/* =========================================
+   ESTILO DO MODAL (POP-UP)
+   ========================================= */
+.modal-overlay {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Fundo preto escuro */
+  z-index: 9999; /* Fica acima de tudo */
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid #d4af37;
+  /* Herda o glass effect do seu tema */
+  background: rgba(20, 20, 20, 0.95) !important; 
+}
+
+.modal-content h3 {
+  font-family: 'Cinzel', serif;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Container do Mapa (Iframe) */
+.map-container {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* Botão de Fechar (X) */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: #d4af37;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
