@@ -4,12 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel Admin - Festa Letícia Marques</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Painel do Evento</h1>
-    <h2 id="event-name">Festa de Aniversário da Letícia Marques</h2>
+  <canvas id="bg-canvas"></canvas>
+  <div class="container glass-effect">
+    <p class="intro-text">Painel de controle do</p>
+    <div class="bowling-header">
+      <svg class="bowling-icon pins-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 32C256 14.33 241.7 0 224 0S192 14.33 192 32v96c0 17.67 14.33 32 32 32s32-14.33 32-32V32zm96 96c0-17.67-14.33-32-32-32s-32 14.33-32 32v96c0 17.67 14.33 32 32 32s32-14.33 32-32v-96zM64 224c0-17.67-14.33-32-32-32S0 206.3 0 224v96c0 17.67 14.33 32 32 32s32-14.33 32-32v-96zm96 96c0-17.67-14.33-32-32-32s-32 14.33-32 32v96c0 17.67 14.33 32 32 32s32-14.33 32-32v-96z"/></svg>
+      <h1 id="event-name">ANIVERSÁRIO DE<br>LETÍCIA MARQUES</h1>
+      <svg class="bowling-icon ball-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm86.9 167.1c-10.1 0-18.3-8.2-18.3-18.3s8.2-18.3 18.3-18.3 18.3 8.2 18.3 18.3-8.2 18.3-18.3 18.3zm-66-45.7c-10.1 0-18.3-8.2-18.3-18.3s8.2-18.3 18.3-18.3 18.3 8.2 18.3 18.3-8.2 18.3-18.3 18.3zm17.1 86.9c-10.1 0-18.3-8.2-18.3-18.3s8.2-18.3 18.3-18.3 18.3 8.2 18.3 18.3-8.2 18.3-18.3 18.3z"/></svg>
+    </div>
+    <div class="divider">
+      <span class="line"></span>
+      <span class="star">PAINEL ADMIN</span>
+      <span class="line"></span>
+    </div>
     <div id="confirmed-count"></div>
     <table id="guests-table">
       <thead>
@@ -23,6 +36,7 @@
   </div>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="animation.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>
